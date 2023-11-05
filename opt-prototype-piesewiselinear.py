@@ -4,6 +4,14 @@ pd.set_option('display.max_columns', 100)
 
 from pulp import *
 
+from logging import getLogger, Formatter, FileHandler, DEBUG, INFO
+formatter = Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+file_handler = FileHandler("./opt-prototype-piesewiselinear.log")
+file_handler.setFormatter(formatter)
+logger = getLogger(__name__)
+logger.addHandler(file_handler)
+logger.setLevel(DEBUG)
+
 # LpProblem
 prob = LpProblem("test", LpMaximize)
 
@@ -47,5 +55,8 @@ print('Status:', LpStatus[status])
 # Result
 obj_value = prob.objective.value()
 print('obj_value', f'{obj_value:,.0f}')
+logger.debug('obj_value - {} - {}'.format(type(obj_value), obj_value))
 for v in prob.variables():
     print(v.name, "=", v.varValue)
+    logger.debug('v.name - {} - {}'.format(type(v.name), v.name))
+    logger.debug('v.varValue - {} - {}'.format(type(v.varValue), v.varValue))

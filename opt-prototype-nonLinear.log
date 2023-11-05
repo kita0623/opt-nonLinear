@@ -1,0 +1,3 @@
+2023-11-05 20:15:44,380 - __main__ - DEBUG - x1_value - <class 'float'> - 228874.73466794082
+2023-11-05 20:15:44,381 - __main__ - DEBUG - x2_value - <class 'float'> - 571125.2654320584
+2023-11-05 20:15:44,381 - __main__ - DEBUG - objective_value - <class 'float'> - 4469653.928159794
